@@ -1,0 +1,3 @@
+[deps]
+ChangePointMean = "d09c0842-ac56-40bd-a407-87591a69e69e"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
