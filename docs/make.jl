@@ -15,9 +15,16 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "User's Guide" => [
+            "KS Test" => "man/kstest.md",
+            "ROC" => "man/roc.md",
+            "Plots and Tables" => "man/bcdiag.md",
+        ],
+
     ],
 )
 
 deploydocs(;
-    repo="github.com/DaymondLing/ChangePointMean.jl",
+    repo = "github.com/DaymondLing/ChangePointMean.jl.git",
+    devbranch = "main"
 )
