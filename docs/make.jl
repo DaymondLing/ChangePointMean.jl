@@ -16,7 +16,9 @@ makedocs(;
     pages=[
         "Home" => "index.md",
         "User's Guide" => [
-            "KS Test" => "man/chgpt.md",
+            "KS Test" => "man/lowlevel.md",
+            "KS Test" => "man/highlevel.md",
+            "KS Test" => "man/plot.md",
         ],
 
     ],
