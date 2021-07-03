@@ -4,14 +4,14 @@
 [![Build Status](https://github.com/DaymondLing/ChangePointMean.jl/workflows/CI/badge.svg)](https://github.com/DaymondLing/ChangePointMean.jl/actions)
 [![Coverage](https://codecov.io/gh/DaymondLing/ChangePointMean.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/DaymondLing/ChangePointMean.jl)
 
-Detect change point in mean of a time series via randomization test of 
+Detect change point in the mean of a time series via randomization test of 
 centered cumsum.
 
 <img src="docs/src/images/chgpoint.png" />
 
 ## Installation
 
-This package can be installed its URL:
+This package can be installed via its URL:
 
 ```
 ] add https://github.com/DaymondLing/ChangePointMean.jl
@@ -33,26 +33,32 @@ References can be found here:
 
 - https://support.sas.com/resources/papers/proceedings17/1489-2017.pdf
 
-## Current capabilities
+## Single change
 
-There are two base functions for finding a change point:
+To find the most dominant change point in the mean of a time series,
+use `mcpoint`:
 
-- `mcppv` examines a vector and calculates the p-value of existence of a mean
-change point via cusum randomization test of the centered series.
+- `mcpoint` returns the index of a change point (beginning of change)
+if there is one, 0 otherwise.
+
+You can specify the desired p-value threshold that's considered as significant,
+you can also specify the minimum length of a segment in order to 
+avoid detection of short segments.
+
+`mcpoint` uses two lower level functions:
+
+- `mcppv` calculates the p-value of existence of a mean
+change point via cumsum randomization test of the centered series.
 
 - `mcptime` estimates the location of the change point by looking for the
 point with minimum overall sum of squares.
 
-These two functions are useful when manually checking for
-the existence of a change point and, if yes, its location.
+You can use these two function to better understand
+how the algorithm reacts to various data patterns.
 
-To analyze mean shift of a time series, you should start with `mcpoint`
-which returns the location of the most dominant mean change point
-if there is one, 0 otherwise.
-This package assumes 1-based indexing of the time series vector.
+Note this package uses 1-based indexing of the time series vector.
 
-- `mcpoint` returns the index of a change point (beginning of change)
-if there is one, 0 otherwise.
+## Multiple changes
 
 In general, there may be multiple change points,
 interest may be in the most recent change or all changes:
@@ -62,13 +68,13 @@ by repeatedly calling `mcpoint` on the more recent segment until
 no more change can be found.
 If there are no change points, 0 is returned.
 
-- `mcpall` returns a vector of all change points, length of vector is
-the number of change points detected via recursive partitioning.
+- `mcpall` returns a vector of all change points via recursive partitioning,
+length of vector is the number of change points detected.
 This function recursively calls `mcpoint` on all segments until
-no changes can be detected.
+no more changes can be detected.
 If there are no changes, an empty vector is returned.
 
-And,
+## Plot
 
 - `mcplot` plots the time series broken into segments to aid visualization.
 

@@ -16,8 +16,8 @@ makedocs(;
     pages=[
         "Home" => "index.md",
         "User's Guide" => [
-            "Single change" => "man/lowlevel.md",
-            "Multiple changes" => "man/highlevel.md",
+            "Single change" => "man/singlechg.md",
+            "Multiple changes" => "man/multichg.md",
             "Plot routine" => "man/plot.md",
         ],
 

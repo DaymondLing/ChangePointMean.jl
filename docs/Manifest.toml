@@ -28,7 +28,7 @@ uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.16.0+6"
 
 [[ChangePointMean]]
-deps = ["Plots"]
+deps = ["Plots", "Random", "Statistics"]
 path = ".."
 uuid = "d09c0842-ac56-40bd-a407-87591a69e69e"
 version = "0.1.0"
