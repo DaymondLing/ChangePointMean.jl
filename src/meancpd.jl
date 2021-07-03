@@ -174,10 +174,12 @@ function mcplot(ts::AbstractVector; chgpts = Int[], palette = :seaborn_bright)
         palette = palette,
     )
 
-    vline!(-0.5 .+ chgpts, lc = :blue, ls = :dash, lw = 1, label = false)
+    cp = ndims(chgpts) == 0 ? [chgpts] : vec(chgpts)    # always a vector
+
+    vline!(-0.5 .+ cp, lc = :blue, ls = :dash, lw = 1, label = false)
 
     n = 0
-    for (t1, t2) in zip(reverse([1; chgpts]), reverse([chgpts .- 1; length(ts)]))
+    for (t1, t2) in zip(reverse([1; cp]), reverse([cp .- 1; length(ts)]))
         n += 1
         m = mean(ts[t1:t2])
         plot!(t1:t2, ts[t1:t2], st = :bar, lc = nothing, label = false, fc = n)
