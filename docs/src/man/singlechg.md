@@ -1,22 +1,21 @@
 # Single change
 
-Detecting change point 
-is a two step process:
+Detecting change point is a two step process:
 
 1. Is there a change point?
 
 2. When did the change happen?
 
-## Is there a change point
+## Is there a change
 
 `mcppv` uses randomization to calculate the p-value of 
 observing the particular sequence.
-
 It uses `shuffle!` to re-arrange the centered time series.
-To guarantee repeatable results,
-you should set the random number seed first.
+For repeatable results,
+set the random number seed first.
 
 ```@example pv
+using ChangePointMean
 using Random
 
 ts = [1, 2, 1, 2, 1, 2, 10, 11, 10, 11, 10]
@@ -30,8 +29,6 @@ If the random number seed is not set, the results will not be
 repeatable:
 
 ```@example pv
-using Random
-
 ts = [1, 2, 1, 2, 1, 2, 10, 11, 10, 11, 10]
 Random.seed!(888)
 for _ in 1:10
@@ -39,7 +36,7 @@ for _ in 1:10
 end
 ```
 
-## When is the change point
+## When is the change
 
 `mcptime` estimates the location of the change point by finding
 the location of minimum sum of squares when the time series is split into

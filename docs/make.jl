@@ -19,8 +19,8 @@ makedocs(;
             "Single change" => "man/singlechg.md",
             "Multiple changes" => "man/multichg.md",
             "Plot routine" => "man/plot.md",
-        ],
-
+            ],
+        "Function Reference" => "Reference.md",
     ],
 )
 

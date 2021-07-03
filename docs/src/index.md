@@ -26,14 +26,3 @@ This package is installable via its URL:
 ```
 ] add https://github.com/DaymondLing/ChangePointMean.jl
 ```
-
-## Index
-
-```@index
-```
-
-## autodocs
-
-```@autodocs
-Modules = [ChangePointMean]
-```
