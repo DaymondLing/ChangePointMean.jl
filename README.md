@@ -7,7 +7,9 @@ Detect change point of mean shift via cusum randomization.
 [![Build Status](https://github.com/DaymondLing/ChangePointMean.jl/workflows/CI/badge.svg)](https://github.com/DaymondLing/ChangePointMean.jl/actions)
 [![Coverage](https://codecov.io/gh/DaymondLing/ChangePointMean.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/DaymondLing/ChangePointMean.jl)
 
-## Installation
+<img src="docs/src/images/chgpoint.png" />
+
+## Installation.
 
 This package can be installed its URL:
 
