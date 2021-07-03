@@ -1,11 +1,12 @@
 # ChangePointMean
 
-Detect change point of mean shift via cusum randomization.
-
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://DaymondLing.github.io/ChangePointMean.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://DaymondLing.github.io/ChangePointMean.jl/dev)
 [![Build Status](https://github.com/DaymondLing/ChangePointMean.jl/workflows/CI/badge.svg)](https://github.com/DaymondLing/ChangePointMean.jl/actions)
 [![Coverage](https://codecov.io/gh/DaymondLing/ChangePointMean.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/DaymondLing/ChangePointMean.jl)
+
+Detect change point in mean of a time series via randomization test of 
+centered cumsum.
 
 <img src="docs/src/images/chgpoint.png" />
 
@@ -25,7 +26,7 @@ change in mean or variance or slope, this package is not it.
 probably what you are looking for.
 
 This is a simple, useful, efficient package for detecting mean shift
-in a time series via cusum randomization test. 
+in a time series via cumsum randomization test. 
 It is non-parametric in the sense that there are no distribution assumptions.
 References can be found here:
 
@@ -68,3 +69,7 @@ If there are no changes, an empty vector is returned.
 And,
 
 - `mcplot` plots the time series broken into segments to aid visualization.
+
+For full documentation, see 
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://DaymondLing.github.io/ChangePointMean.jl/stable)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://DaymondLing.github.io/ChangePointMean.jl/dev)
