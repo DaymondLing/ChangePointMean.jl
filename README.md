@@ -10,7 +10,7 @@ centered cumsum.
 
 <img src="docs/src/images/chgpoint.png" />
 
-## Installation.
+## Installation
 
 This package can be installed its URL:
 
@@ -44,16 +44,19 @@ change point via cusum randomization test of the centered series.
 - `mcptime` estimates the location of the change point by looking for the
 point with minimum overall sum of squares.
 
-These two functions can be useful when manually checking for
+These two functions are useful when manually checking for
 the existence of a change point and, if yes, its location.
 
-For easier analysis of a time series, you can use `mcpoint` which uses
-`mcppv` and `mcptime`:
+To analyze mean shift of a time series, you should start with `mcpoint`
+which returns the location of the most dominant mean change point
+if there is one, 0 otherwise.
+This package assumes 1-based indexing of the time series vector.
 
 - `mcpoint` returns the index of a change point (beginning of change)
 if there is one, 0 otherwise.
 
-Building off of `mcpoint`, you can use these two higher level functions:
+In general, there may be multiple change points,
+interest may be in the most recent change or all changes:
 
 - `mcplast` returns the index of the most recent change point 
 by repeatedly calling `mcpoint` on the more recent segment until 
