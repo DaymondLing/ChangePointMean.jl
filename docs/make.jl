@@ -16,9 +16,9 @@ makedocs(;
     pages=[
         "Home" => "index.md",
         "User's Guide" => [
-            "KS Test" => "man/lowlevel.md",
-            "KS Test" => "man/highlevel.md",
-            "KS Test" => "man/plot.md",
+            "Single change" => "man/lowlevel.md",
+            "Multiple changes" => "man/highlevel.md",
+            "Plot routine" => "man/plot.md",
         ],
 
     ],
