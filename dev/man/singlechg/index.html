@@ -5,27 +5,27 @@ using Random
 ts = [1, 2, 1, 2, 1, 2, 10, 11, 10, 11, 10]
 for _ in 1:10
     Random.seed!(888)
-    println(mcpoint(ts))
-end</code></pre><pre class="documenter-example-output">7
-7
-7
-7
-7
-7
-7
-7
-7
-7</pre><p>If the random number seed is not set, the results will not be repeatable:</p><pre><code class="language-julia">ts = [1, 2, 1, 2, 1, 2, 10, 11, 10, 11, 10]
+    println(mcppv(ts))
+end</code></pre><pre class="documenter-example-output">0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.005988023952095809</pre><p>If the random number seed is not set, the results will not be repeatable:</p><pre><code class="language-julia">ts = [1, 2, 1, 2, 1, 2, 10, 11, 10, 11, 10]
 Random.seed!(888)
 for _ in 1:10
-    println(mcpoint(ts))
-end</code></pre><pre class="documenter-example-output">7
-7
-7
-7
-7
-7
-7
-7
-7
-7</pre><h2 id="When-is-the-change"><a class="docs-heading-anchor" href="#When-is-the-change">When is the change</a><a id="When-is-the-change-1"></a><a class="docs-heading-anchor-permalink" href="#When-is-the-change" title="Permalink"></a></h2><p><code>mcptime</code> estimates the location of the change point by finding the location of minimum sum of squares when the time series is split into two halves.</p><pre><code class="language-julia">mcptime(ts)</code></pre><pre class="documenter-example-output">7</pre><h2 id="A-single-change-point"><a class="docs-heading-anchor" href="#A-single-change-point">A single change point</a><a id="A-single-change-point-1"></a><a class="docs-heading-anchor-permalink" href="#A-single-change-point" title="Permalink"></a></h2><p><code>mcpoint</code> uses <code>mcppv</code> and <code>mcptime</code> together to return the location of a change point, the start of a new shifted sub-series:</p><pre><code class="language-julia">mcptime(ts)</code></pre><pre class="documenter-example-output">7</pre><p>If there is no change point, <code>mcpoint</code> returns 0:</p><pre><code class="language-julia">mcptime([1, 1, 1, 1, 1, 1, 1, 1, 1])</code></pre><pre class="documenter-example-output">4</pre><p>You can use <code>minlen</code> to control the length of segments:</p><pre><code class="language-julia">mcptime([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10])</code></pre><pre class="documenter-example-output">12</pre><pre><code class="language-julia">mcptime([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10]; minlen = 4)</code></pre><pre class="documenter-example-output">11</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../multichg/">Multiple changes »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.3 on <span class="colophon-date" title="Saturday 3 July 2021 22:20">Saturday 3 July 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+    println(mcppv(ts))
+end</code></pre><pre class="documenter-example-output">0.005988023952095809
+0.005988023952095809
+0.005988023952095809
+0.001996007984031936
+0.005988023952095809
+0.003992015968063872
+0.001996007984031936
+0.003992015968063872
+0.005988023952095809
+0.003992015968063872</pre><h2 id="When-is-the-change"><a class="docs-heading-anchor" href="#When-is-the-change">When is the change</a><a id="When-is-the-change-1"></a><a class="docs-heading-anchor-permalink" href="#When-is-the-change" title="Permalink"></a></h2><p><code>mcptime</code> estimates the location of the change point by finding the location of minimum sum of squares when the time series is split into two halves.</p><pre><code class="language-julia">mcptime(ts)</code></pre><pre class="documenter-example-output">7</pre><h2 id="A-single-change-point"><a class="docs-heading-anchor" href="#A-single-change-point">A single change point</a><a id="A-single-change-point-1"></a><a class="docs-heading-anchor-permalink" href="#A-single-change-point" title="Permalink"></a></h2><p><code>mcpoint</code> uses <code>mcppv</code> and <code>mcptime</code> together to return the location of a change point, the start of a new shifted sub-series:</p><pre><code class="language-julia">mcpoint(ts)</code></pre><pre class="documenter-example-output">7</pre><p>If there is no change point, <code>mcpoint</code> returns 0:</p><pre><code class="language-julia">mcpoint([1, 1, 1, 1, 1, 1, 1, 1, 1])</code></pre><pre class="documenter-example-output">0</pre><p>You can use <code>minlen</code> to control the length of segments:</p><pre><code class="language-julia">mcptime([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10])</code></pre><pre class="documenter-example-output">12</pre><pre><code class="language-julia">mcptime([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10]; minlen = 4)</code></pre><pre class="documenter-example-output">11</pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../">« Home</a><a class="docs-footer-nextpage" href="../multichg/">Multiple changes »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.3 on <span class="colophon-date" title="Sunday 4 July 2021 02:36">Sunday 4 July 2021</span>. Using Julia version 1.6.1.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
