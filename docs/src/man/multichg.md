@@ -16,7 +16,7 @@ of that segment. If there are no change points, 0 is returned.
 ```@example multi
 using ChangePointMean
 
-ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, 6, 6, 3, 3, 3]
+ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, 6, 6, 3, 3, 3, 3]
 mcplast(ts)
 ```
 
@@ -27,8 +27,5 @@ until no more changes can be found. It returns a vector of
 starting indices, if no changes are found, an empty vector is returned.
 
 ```@example multi
-using ChangePointMean
-
-ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, 6, 6, 3, 3, 3]
 mcpall(ts)
 ```
