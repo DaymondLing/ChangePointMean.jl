@@ -16,7 +16,7 @@ of that segment. If there are no change points, 0 is returned.
 ```@example multi
 using ChangePointMean
 
-ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, 6, 6, 3, 3, 3, 3]
+ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 8, 8, 8, 8, 3, 3, 3, 3]
 mcplast(ts)
 ```
 

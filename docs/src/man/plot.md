@@ -6,8 +6,9 @@ you get a plain plot:
 
 ```@example multi
 using ChangePointMean
+using Plots
 
-ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, 6, 6, 3, 3, 3, 3]
+ts = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, 3, 3, 3, 3, 3]
 mcplot(ts)
 png("plot-1.png"); nothing # hide
 ```
