@@ -1,9 +1,9 @@
 """
     mcppv(ts::AbstractVector; shuffle::Int = 500)
 
-return p-value of a change point in mean in `ts`
-`shuffle` is number of randomization used to generate p-value
-uses global random number generator
+return p-value of a change point in mean in `ts`.\\
+`shuffle` is number of randomization used to generate p-value,
+uses global random number generator.
 """
 function mcppv(ts::AbstractVector; shuffle::Int = 500)
     length(ts) <= 1 && return 1.0                   # large pvalue is no change
@@ -30,9 +30,9 @@ end
 """
     mcptime(ts::AbstractVector; minlen::Int = 1)
 
-return index of start of new segment via minimum ssq in `ts`
-`minlen` is minimum length of a segment you want
-0 is returned if minlen is not least twice length of ts
+return index of start of new segment via minimum ssq in `ts`.\\
+`minlen` is minimum length of a segment you want.\\
+0 is returned if `minlen` is not least twice length of `ts`.
 """
 function mcptime(ts::AbstractVector; minlen::Int = 3)
     minlen < 1 && return 0
@@ -62,10 +62,10 @@ ssq(v) returns sum of squares
 """
     mcpoint(ts::AbstractVector; pcut=0.05, shuffle=500, minlen=3)
 
-return index of change point in mean in `ts` if it exists, 0 otherwise
-`pcut` is p-value threshold of existence of a change point, default is 0.05
-`shuffle` is number of randomizations to use
-`minlen` is minimum allowed length for a segment (prevent short segments)
+return index of change point in mean in `ts` if it exists, 0 otherwise.\\
+`pcut` is p-value threshold of existence of a change point, default is 0.05.\\
+`shuffle` is number of randomizations to use,\\
+`minlen` is minimum allowed length for a segment (prevent short segments).
 """
 function mcpoint(ts::AbstractVector; pcut = 0.05, shuffle::Int = 500, minlen::Int = 3)
     minlen < 1 && return 0
@@ -87,10 +87,10 @@ end
 """
     mcplast(ts::AbstractVector; pcut=0.05, shuffle=500, minlen=3)
 
-return index of rightmost change point in `ts` if any, 0 otherwise
-`pcut` is p-value threshold of existence of a change point, default is 0.05
-`shuffle` is number of randomizations to use
-`minlen` is minimum allowed length for a segment (prevent short segments)
+return index of rightmost change point in `ts` if any, 0 otherwise.\\
+`pcut` is p-value threshold of existence of a change point, default is 0.05.\\
+`shuffle` is number of randomizations to use.\\
+`minlen` is minimum allowed length for a segment (avoids short segments).
 """
 function mcplast(ts::AbstractVector; pcut = 0.05, shuffle::Int = 500, minlen::Int = 3)
     minlen < 1 && return 0
@@ -112,10 +112,10 @@ end
 """
     mcpall(ts::AbstractVector; pcut = 0.05, shuffle = 500, minlen = 3)
 
-return vector of index of all change points in `ts` via recursive partitioning
-`pcut` is p-value threshold of existence of a change point, default is 0.05
-`shuffle` is number of randomizations to use
-`minlen` is minimum allowed length for a segment (prevent short segments)
+return vector of index of all change points in `ts` via recursive partitioning.\\
+`pcut` is p-value threshold of existence of a change point, default is 0.05.\\
+`shuffle` is number of randomizations to use,\\
+`minlen` is minimum allowed length for a segment (avoid short segments).
 """
 function mcpall(ts::AbstractVector; pcut = 0.05, shuffle::Int = 500, minlen::Int = 3)
     chgpts = Vector{Int}(undef, 0)
@@ -157,11 +157,11 @@ end
 """
     mcplot(ts::AbstractVector; chgpts=Int[], palette=:seaborn_bright)
 
-returns plot of `ts` with `chgpts` as change points (default is none)
-`palette` is the default color scheme to use
+returns plot of `ts` with `chgpts` as change points (default is none),\\
+`palette` is the default color scheme to use.
 
 `mcplot(ts)` is a plain plot of the time series,
-`mcplot(ts, chgpts=mcpall(ts))` is plot of ts with all change points
+`mcplot(ts, chgpts=mcpall(ts))` is plot of ts with all change points.
 """
 function mcplot(ts::AbstractVector; chgpts = Int[], palette = :seaborn_bright)
     len = length(ts)
